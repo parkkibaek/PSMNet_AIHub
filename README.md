@@ -20,6 +20,18 @@ This repository contains the code (in PyTorch) for "[Pyramid Stereo Matching Net
 2. [Usage](#usage)
 3. [Results](#results)
 4. [Contacts](#contacts)
+- TODO
+소스코드 설치 과정 설명
+
+부가 모듈 설치 관련
+
+학습모델 링크
+
+코드 옵션 설명
+
+테스트 모듈 설정 설명
+
+라이선스 설명
 
 ## Introduction
 
@@ -83,11 +95,11 @@ python submission.py --maxdisp 192 \
 ### Pretrained Model
 ※NOTE: The pretrained model were saved in .tar; however, you don't need to untar it. Use torch.load() to load it.
 
-Update: 2018/9/6 We released the pre-trained KITTI 2012 model.
+Update: 2019/11/22 We released the pre-trained KITTI 2012 model.
 
-| KITTI 2015 |  Scene Flow | KITTI 2012|
+| KITTI 2015 |  Scene Flow | KITTI 2012| AI Hub |
 |---|---|---|
-|[Google Drive](https://drive.google.com/file/d/1pHWjmhKMG4ffCrpcsp_MTXMJXhgl3kF9/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1xoqkQ2NXik1TML_FMUTNZJFAHrhLdKZG/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1p4eJ2xDzvQxaqB20A_MmSP9-KORBX1pZ/view)|
+|[Google Drive](https://drive.google.com/file/d/1pHWjmhKMG4ffCrpcsp_MTXMJXhgl3kF9/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1xoqkQ2NXik1TML_FMUTNZJFAHrhLdKZG/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1p4eJ2xDzvQxaqB20A_MmSP9-KORBX1pZ/view)|[Google Drive](https://drive.google.com/open?id=1S8KUz2bCRhBbj_YRyzjB03Ag_S8WJA2I)|
 
 
 ## Results
@@ -131,4 +143,5 @@ The receptive fields were calculated for the pixel at image center, indicated by
 
 ## Contacts
 parkkibaek@kaist.ac.kr
+MIT License
 

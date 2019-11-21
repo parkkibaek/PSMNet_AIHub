@@ -20,6 +20,7 @@ from models import *
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import mmcv
 
 parser = argparse.ArgumentParser(description='PSMNet')
 
@@ -49,16 +50,47 @@ torch.manual_seed(args.seed)
 if args.cuda:
     torch.cuda.manual_seed(args.seed)
 
-all_left_disp = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/*', '*disp16.png')))]
-all_left_img = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/*', '*left.png')))]
-all_right_img = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/*', '*right.png')))]
+# random.seed(100)
+# np.random.seed(100)
+# # target directory construction for dataset
+# target_location = "./data/sidewalk_dataset"
+# sym_train_location = os.path.join(target_location+'/train')
+# sym_test_location = os.path.join(target_location+'/test')
+#
+# mmcv.mkdir_or_exist(sym_train_location)
+# mmcv.mkdir_or_exist(sym_test_location)
+#
+#
+# image_folder_list = glob.glob(os.path.join(args.datapath, '1/ZED*'))
+# image_folder_list.sort(reverse=False)
+# assert len(image_folder_list) > 0
+# random.shuffle(image_folder_list)
+#
+# num_test = int(len(image_folder_list) * 0.15)
+# num_train = len(image_folder_list) - num_test
+# train_folders = image_folder_list[:num_train]
+# test_folders = image_folder_list[num_train:]
+#
+# # symlink image and annotations to train, val, test split
+# symlink_images_to_target(train_folders, sym_train_location)
+# symlink_images_to_target(test_folders, sym_test_location)
+# # convert annotation file for each split
+#
+# import pdb
+# pdb.set_trace()
+# train_folder_list = glob.glob(os.path.join(sym_train_location, '*'))
+# test_folder_list = glob.glob(os.path.join(sym_test_location, '*'))
+
+
+all_left_disp = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/ZED*', '*disp16.png')))]
+all_left_img = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/ZED*', '*left.png')))]
+all_right_img = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/ZED*', '*right.png')))]
 
 test_left_disp = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/test*', '*disp16.png')))]
 test_left_img = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/test*', '*left.png')))]
 test_right_img = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/test*', '*right.png')))]
 
-print(len(all_left_disp))
-print(len(test_left_disp))
+
 TrainImgLoader = torch.utils.data.DataLoader(
          DA.myImageFloder(all_left_img,all_right_img,all_left_disp, True), 
          batch_size= 12, shuffle= True, num_workers= 20, drop_last=False)
@@ -70,6 +102,7 @@ TestImgLoader_fix = torch.utils.data.DataLoader(
 TestImgLoader_orig = torch.utils.data.DataLoader(
          DA.myImageFloder2(test_left_img,test_right_img,test_left_disp, False),
          batch_size= 8, shuffle= False, num_workers= 4, drop_last=False)
+
 
 
 if args.model == 'stackhourglass':
@@ -87,7 +120,9 @@ if args.loadmodel is not None:
     state_dict = torch.load(args.loadmodel)
     model.load_state_dict(state_dict['state_dict'])
 
-print('Number of model parameters: {}'.format(sum([p.data.nelement() for p in model.parameters()])))
+print('Number of model parameters: {} M'.format(np.float(sum([p.data.nelement() for p in model.parameters()]))/10**6))
+print('Number of training image: {} K'.format(np.float(len(all_left_disp))/10**3))
+print('Number of test image: {} K'.format(np.float(len(test_left_disp))/10**3))
 
 optimizer = optim.Adam(model.parameters(), lr=0.001, betas=(0.9, 0.999))
 
@@ -158,9 +193,7 @@ def adjust_learning_rate(optimizer, epoch):
 
 def main():
 
-    ##############################
-    # APPLY CONFIDENCE VALUE!!!
-    ###############################
+    mmcv.mkdir_or_exist(args.savemodel)
     start_full_time = time.time()
     for epoch in range(1, args.epochs+1):
 
@@ -169,9 +202,8 @@ def main():
 
       ################################### TRAIN #########################################
       for batch_idx, (imgL_crop, imgR_crop, disp_crop_L) in enumerate(TrainImgLoader):
-          print(".")
-          # loss = train(imgL_crop,imgR_crop, disp_crop_L)
-          # total_train_loss += loss
+          loss = train(imgL_crop,imgR_crop, disp_crop_L)
+          total_train_loss += loss
       print('epoch %d total training loss = %.3f' %(epoch, total_train_loss/len(TrainImgLoader)))
       savefilename = args.savemodel+'/checkpoint_'+str(epoch)+'.tar'
       torch.save({
@@ -206,5 +238,15 @@ def main():
       print('total test rate (original resolution) = %.3f' % (total_test_rate / len(TestImgLoader_orig)))
 
 
+def symlink_images_to_target(image_list, target_path):
+
+    for source_image_path in image_list:
+        img_filename = os.path.basename(source_image_path)
+        target_img_path = os.path.join(target_path, img_filename)
+        mmcv.symlink(source_image_path, target_img_path)
+
+    print('images and annotations are copied to: {}'.format(target_path))
+
 if __name__ == '__main__':
     main()
+

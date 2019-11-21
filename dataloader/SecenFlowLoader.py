@@ -149,7 +149,7 @@ class myImageFloder2(data.Dataset):
         w, h = left_img.size
         left_img = left_img.crop((0, 244, w, 244 + 592))
         right_img = right_img.crop((0, 244, w, 244 + 592))
-        dataL = dataL[244:-244, :] / 100.0  # Ground Truth output coding
+        dataL = dataL[244:-244, :] / 100.0*1920/1248  # Ground Truth output coding
 
         if self.training:
             w, h = left_img.size
