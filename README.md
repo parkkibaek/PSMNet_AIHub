@@ -1,5 +1,5 @@
 # PSMNet_AIHub
-Inspection code for Public AI Dataset of Stereo Estimation (http://www.aihub.or.kr/)
+Inspection code for Public AI Dataset of Stereo Estimation (http://www.aihub.or.kr/).
 This repository contains the code (in PyTorch) for "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" paper (CVPR 2018) by [Jia-Ren Chang](https://jiarenchang.github.io/) and [Yong-Sheng Chen](https://people.cs.nctu.edu.tw/~yschen/).
 
 ### Citation
@@ -128,8 +128,6 @@ The receptive fields were calculated for the pixel at image center, indicated by
 <img align="center" src="https://user-images.githubusercontent.com/11732099/37876179-6d6dd97e-307b-11e8-803e-bcdbec29fb94.png">
 
 
-
 ## Contacts
-followwar@gmail.com
+parkkibaek@kaist.ac.kr
 
-Any discussions or concerns are welcomed!
