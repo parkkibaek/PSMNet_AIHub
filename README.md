@@ -121,27 +121,14 @@ Update: 2019/11/22 We released the pre-trained KITTI 2012 model.
 
 ### Qualitative results
 #### Left image
-<img align="center" src="http://www.cvlibs.net/datasets/kitti/results/efb9db97938e12a20b9c95ce593f633dd63a2744/image_0/000004_10.png">
+<img align="center" src="https://user-images.githubusercontent.com/36181879/69515135-f21e4a00-0f90-11ea-805f-8cf4fa33529f.png">
 
 #### Predicted disparity
-<img align="center" src="http://www.cvlibs.net/datasets/kitti/results/efb9db97938e12a20b9c95ce593f633dd63a2744/result_disp_img_0/000004_10.png">
-
-#### Error
-<img align="center" src="http://www.cvlibs.net/datasets/kitti/results/efb9db97938e12a20b9c95ce593f633dd63a2744/errors_disp_img_0/000004_10.png">
-
-### Visualization of Receptive Field
-We visualize the receptive fields of different settings of PSMNet, full setting and baseline.
-
-Full setting: dilated conv, SPP, stacked hourglass
-
-Baseline: no dilated conv, no SPP, no stacked hourglass
-
-The receptive fields were calculated for the pixel at image center, indicated by the red cross.
-
-<img align="center" src="https://user-images.githubusercontent.com/11732099/37876179-6d6dd97e-307b-11e8-803e-bcdbec29fb94.png">
+<img align="center" src="https://user-images.githubusercontent.com/36181879/69515137-f21e4a00-0f90-11ea-948a-af3a84dc3f5b.png">
 
 
 ## Contacts
 parkkibaek@kaist.ac.kr
+
 MIT License
 
