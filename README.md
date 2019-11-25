@@ -20,18 +20,6 @@ This repository contains the code (in PyTorch) for "[Pyramid Stereo Matching Net
 2. [Usage](#usage)
 3. [Results](#results)
 4. [Contacts](#contacts)
-- TODO
-소스코드 설치 과정 설명
-
-부가 모듈 설치 관련
-
-학습모델 링크
-
-코드 옵션 설명
-
-테스트 모듈 설정 설명
-
-라이선스 설명
 
 ## Introduction
 
