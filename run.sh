@@ -4,6 +4,8 @@ python main.py --maxdisp 192 \
                --model stackhourglass \
                --datapath ../../03_datasets/NIA/ \
                --epochs 200 \
+               --batchsz 12 \
+               --nworker 20 \
                --savemodel ./trained/final/
 
                #--loadmodel ./trained/checkpoint_4.tar \

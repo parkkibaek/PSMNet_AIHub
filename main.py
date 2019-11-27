@@ -40,6 +40,10 @@ parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='enables CUDA training')
 parser.add_argument('--seed', type=int, default=1, metavar='S',
                     help='random seed (default: 1)')
+parser.add_argument('--batchsz', type=int ,default=12,
+                    help='batch size')
+parser.add_argument('--nworker', type=int ,default=12,
+                    help='num_workers')
 args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
 
@@ -93,15 +97,15 @@ test_right_img = [x for x in sorted(glob.glob(os.path.join(args.datapath,'*/test
 
 TrainImgLoader = torch.utils.data.DataLoader(
          DA.myImageFloder(all_left_img,all_right_img,all_left_disp, True), 
-         batch_size= 12, shuffle= True, num_workers= 20, drop_last=False)
+         batch_size= args.batchsz, shuffle= True, num_workers= args.nworker, drop_last=False)
 
 TestImgLoader_fix = torch.utils.data.DataLoader(
          DA.myImageFloder(test_left_img,test_right_img,test_left_disp, False), 
-         batch_size= 8, shuffle= False, num_workers= 4, drop_last=False)
+         batch_size= args.batchsz, shuffle= False, num_workers= args.nworker, drop_last=False)
 
 TestImgLoader_orig = torch.utils.data.DataLoader(
          DA.myImageFloder2(test_left_img,test_right_img,test_left_disp, False),
-         batch_size= 8, shuffle= False, num_workers= 4, drop_last=False)
+         batch_size= args.batchsz, shuffle= False, num_workers= args.nworker, drop_last=False)
 
 
 
