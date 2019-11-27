@@ -26,13 +26,14 @@ PSMNet, a pyramid stereo matching network, consists two main modules: spatial py
 - [Python 2.7](https://www.python.org/downloads/)
 - [PyTorch (0.4.0+)](http://pytorch.org)
 - torchvision 0.2.0 (higher version may cause issues)
+
 For detailed installation, Please refer [INSTALL.md](./INSTALL.md).<br/>
 자세한 설치과정은 [INSTALL_kor.md](./INSTALL_kor.md) 을 참고하세요.
 
 
 ### Prepare datasets
 Dataset Download : [http://www.aihub.or.kr/content/611](http://www.aihub.or.kr/content/611)<br/>
-[main.py](./main.py) reads images from following data structure. The training data folder name start with ZED* and test data folder name start with test*.
+[main.py](./main.py) reads images from following data structure. The folder name starting with ZED* and test* is training data and test data respectively.
 
 ```
 ${datapath}
