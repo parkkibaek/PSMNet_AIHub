@@ -26,15 +26,13 @@ PSMNet, a pyramid stereo matching network, consists two main modules: spatial py
 - [Python 2.7](https://www.python.org/downloads/)
 - [PyTorch (0.4.0+)](http://pytorch.org)
 - torchvision 0.2.0 (higher version may cause issues)
-
-For detailed installation, please refer [INSTALL.md](./INSTALL.md).<br/>
-자세한 설치과정은 [INSTALL_kor.md](./INSTALL_korean.md) 을 참고하세요.
+For detailed installation, Please refer [INSTALL.md](./INSTALL.md).<br/>
+자세한 설치과정은 [INSTALL_kor.md](./INSTALL_kor.md) 을 참고하세요.
 
 
 ### Prepare datasets
 Dataset Download : [http://www.aihub.or.kr/content/611](http://www.aihub.or.kr/content/611)<br/>
-[main.py](./main.py) reads images from following data structure.<br/>
-The training data folder name start with ZED* and test data folder name start with test*.
+[main.py](./main.py) reads images from following data structure. The training data folder name start with ZED* and test data folder name start with test*.
 
 ```
 ${datapath}
@@ -56,7 +54,6 @@ ${datapath}
 |   │   ├── ...
 ├── ...
 ├── 7
-
 ```
 
 ### Execution
@@ -75,7 +72,6 @@ python main.py --maxdisp 192 \
                --batchsz 12 \
                --nworker 20 \
                --savemodel (path for saving model)/
-
 ```
 
 
@@ -97,10 +93,10 @@ python main.py --maxdisp 192 \
 
 ### Software
 
-Ubuntu 16.04<br/>
-Python 2.7<br/>
-PyTorch 0.4.0<br/>
-CUDA 9.0<br/>
+- Ubuntu 16.04
+- Python 2.7
+- PyTorch 0.4.0
+- CUDA 9.0
 
 
 ### Results on NIA Sidewalk dataset
