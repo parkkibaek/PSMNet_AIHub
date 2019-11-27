@@ -1,12 +1,12 @@
 # PSMNet_AIHub
 
-본 저장소는 NIA 인도 보행 공공 데이터의 검수용으로 구축되었습니다.  인도 보행 데이터는 공공 데이터 구축을 목적으로 하는 [AI Hub](http://www.aihub.or.kr/) 에서 제공됩니다.
-인도 보행 공공 데이터는 장애인 인도보행의 어려움과 이동권 문제 해결을 위하여 만들어졌습니다[[다운 링크](http://www.aihub.or.kr/content/611)].
+본 저장소는 NIA 인도 보행 공공 데이터의 검수용으로 구축되었습니다.  인도 보행 데이터는 공공 데이터 구축을 목적으로 하는 [AI Hub](http://www.aihub.or.kr/)에서 제공됩니다.
+인도 보행 공공 데이터는 장애인 인도보행의 어려움과 이동권 문제 해결을 위하여 만들어졌습니다.
 본 저장소는 "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" 기반으로 이루어졌습니다.
 
 
 This repository contains the inspection of NIA Sidewalk dataset provided by [AI Hub](http://www.aihub.or.kr/).
-Sidewalk dataset is public data to solve that disabled person have the difficulty of walking in the sidewalk[[Download](http://www.aihub.or.kr/content/611)].
+Sidewalk dataset is public data to solve that disabled person have the difficulty of walking in the sidewalk.
 This repository contains the code (in PyTorch) for "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" paper (CVPR 2018) by [Jia-Ren Chang](https://jiarenchang.github.io/) and [Yong-Sheng Chen](https://people.cs.nctu.edu.tw/~yschen/).
 
 
@@ -27,7 +27,7 @@ PSMNet, a pyramid stereo matching network, consists two main modules: spatial py
 - torchvision 0.2.0 (higher version may cause issues)
 
 For detailed installation, please refer [INSTALL.md](./INSTALL.md)
-자세한 설치과정은 [INSTALL_korean.md](./INSTALL_korean.md) 을 참고하세요.
+자세한 설치과정은 [INSTALL_kor.md](./INSTALL_korean.md) 을 참고하세요.
 
 
 ### Prepare datasets
@@ -107,10 +107,10 @@ python main.py --maxdisp 192 \
 
 ### Qualitative results
 #### Left image
-<img align="center" src="https://user-images.githubusercontent.com/36181879/69515135-f21e4a00-0f90-11ea-805f-8cf4fa33529f.png">
+<img align="center" src="https://user-images.githubusercontent.com/36181879/69713212-7ca8aa00-1147-11ea-912f-48a8c000ad40.png">
 
 #### Predicted disparity
-<img align="center" src="https://user-images.githubusercontent.com/36181879/69515137-f21e4a00-0f90-11ea-948a-af3a84dc3f5b.png">
+<img align="center" src="https://user-images.githubusercontent.com/36181879/69713178-6e5a8e00-1147-11ea-9415-6a0cb5453dc7.png">
 
 
 ## Contacts
