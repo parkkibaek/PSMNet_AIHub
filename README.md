@@ -1,12 +1,12 @@
 # PSMNet_AIHub
 
-본 저장소는 NIA 인도 보행 공공 데이터의 검수용으로 구축되었습니다.  인도 보행 데이터는 공공 데이터 구축을 목적으로 하는 [AI Hub](http://www.aihub.or.kr/)에서 제공됩니다.
+본 저장소는 NIA 인도 보행 공공 데이터의 검수용으로 구축되었습니다.<br/>인도 보행 데이터는 공공 데이터 구축을 목적으로 하는 [AI Hub](http://www.aihub.or.kr/)에서 제공됩니다.
 인도 보행 공공 데이터는 장애인 인도보행의 어려움과 이동권 문제 해결을 위하여 만들어졌습니다.
 "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" 기반으로 만들어 졌습니다.
 
 
 This repository contains the inspection of NIA Sidewalk dataset provided by [AI Hub](http://www.aihub.or.kr/).
-Sidewalk dataset is public data to solve that disabled person have the difficulty of walking in the sidewalk.
+Sidewalk dataset is a public dataset to solve that disabled person suffer from the difficulty of mobility in the sidewalk.
 This repository contains the code (in PyTorch) for "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" paper (CVPR 2018) by [Jia-Ren Chang](https://jiarenchang.github.io/) and [Yong-Sheng Chen](https://people.cs.nctu.edu.tw/~yschen/).
 
 
@@ -31,7 +31,7 @@ For detailed installation, please refer [INSTALL.md](./INSTALL.md).
 자세한 설치과정은 [INSTALL_kor.md](./INSTALL_korean.md) 을 참고하세요.
 
 
-#### Prepare datasets
+### Prepare datasets
 Dataset Download : [http://www.aihub.or.kr/content/611](http://www.aihub.or.kr/content/611)
 
 [main.py](./main.py) reads images from following data structure.
@@ -60,7 +60,7 @@ ${datapath}
 
 ```
 
-#### Execution
+### Execution
 Execute PSMNet_AIHub
 ```
 sh run.sh
