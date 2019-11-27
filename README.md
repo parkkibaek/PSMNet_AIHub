@@ -2,7 +2,7 @@
 
 본 저장소는 NIA 인도 보행 공공 데이터의 검수용으로 구축되었습니다.  인도 보행 데이터는 공공 데이터 구축을 목적으로 하는 [AI Hub](http://www.aihub.or.kr/)에서 제공됩니다.
 인도 보행 공공 데이터는 장애인 인도보행의 어려움과 이동권 문제 해결을 위하여 만들어졌습니다.
-본 저장소는 "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" 기반으로 이루어졌습니다.
+"[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" 기반으로 만들어 졌습니다.
 
 
 This repository contains the inspection of NIA Sidewalk dataset provided by [AI Hub](http://www.aihub.or.kr/).
@@ -26,18 +26,18 @@ PSMNet, a pyramid stereo matching network, consists two main modules: spatial py
 - [PyTorch (0.4.0+)](http://pytorch.org)
 - torchvision 0.2.0 (higher version may cause issues)
 
-For detailed installation, please refer [INSTALL.md](./INSTALL.md)
+For detailed installation, please refer [INSTALL.md](./INSTALL.md).
+
 자세한 설치과정은 [INSTALL_kor.md](./INSTALL_korean.md) 을 참고하세요.
 
 
-### Prepare datasets
+#### Prepare datasets
 Dataset Download : [http://www.aihub.or.kr/content/611](http://www.aihub.or.kr/content/611)
 
-[INSTALL.md](./main.py) read images from following data structure.
-The training data folder name start with ZED* and The training data folder name start with test*.
+[main.py](./main.py) reads images from following data structure.
+The training data folder name start with ZED* and test data folder name start with test*.
 
 ```
-
 ${datapath}
 ├── 1
 │   ├── ZED1_1
@@ -60,8 +60,13 @@ ${datapath}
 
 ```
 
+#### Execution
+Execute PSMNet_AIHub
+```
+sh run.sh
+```
 
-In run.sh, following command are executed.
+In [run.sh](./run.sh), following command are executed.
 
 ```
 python main.py --maxdisp 192 \
@@ -77,6 +82,7 @@ python main.py --maxdisp 192 \
 
 ### Pretrained Model
 - NOTE: The pretrained model were saved in .tar; however, you don't need to untar it. Use torch.load() to load it.
+- 학습된 모델이 .tar로 저장되나, 압축을 풀지 마시고 torch.load()를 사용하시면 됩니다.
 
 | KITTI 2015 |  Scene Flow | KITTI 2012| NIA Sidewalk |
 |---|---|---|---|
