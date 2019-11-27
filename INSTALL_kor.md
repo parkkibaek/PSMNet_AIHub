@@ -23,7 +23,8 @@ sh run.sh
 ```
 
 c. 파라미터 설정하기
-[run.sh](./run.sh) 내부에서 파라미터를 설정할 수 있습니다.
+
+[run.sh](./run.sh) 내부에서 파라미터를 설정할 수 있습니다. --datapath를 데이터 구조 트리의 ${datapath}와 같게 설정하세요.
 ```
 python main.py --maxdisp 192 \ # 최대 disparity를 의미합니다.
                --model stackhourglass \ # 모델 유형을 정의합니다.
