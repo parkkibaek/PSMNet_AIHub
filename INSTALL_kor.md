@@ -22,5 +22,15 @@ cd PSMNet_AIHub
 sh run.sh
 ```
 
-
+c. 파라미터 설정하기
+[run.sh](./run.sh) 내부에서 파라미터를 설정할 수 있습니다.
+```
+python main.py --maxdisp 192 \ # 최대 disparity를 의미합니다.
+               --model stackhourglass \ # 모델 유형을 정의합니다.
+               --datapath  \ # 데이터 셋이 들어 있는 폴더를 지정합니다. (예를 들면 ./NIA/)
+               --epochs 200 \ # epoch 정의
+               --batchsz 12 \ # batch size 정의
+               --nworker 20 \ # worker 개수 정의
+               --savemodel  # 학습된 모델 저장할 폴더를 지정합니다. (예를 들면 ./trained/)
+```
 

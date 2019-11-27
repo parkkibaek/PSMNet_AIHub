@@ -63,7 +63,7 @@ ${datapath}
 sh run.sh
 ```
 
-In [run.sh](./run.sh), following command are executed.
+In [run.sh](./run.sh), following command are executed. Set --datapath as same as ${datapath} in above data structure.
 
 ```
 python main.py --maxdisp 192 \
