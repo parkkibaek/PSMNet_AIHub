@@ -1,48 +1,28 @@
 # PSMNet_AIHub
-Inspection code for Public AI Dataset of Stereo Estimation (http://www.aihub.or.kr/).
 
+This repository contains the inspection of NIA Sidewalk dataset provided by http://www.aihub.or.kr/.
+Sidewalk dataset is public data to solve that disabled person have the difficulty of walking in the sidewalk.
+You can download the dataset from http://www.aihub.or.kr/content/611.
 This repository contains the code (in PyTorch) for "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" paper (CVPR 2018) by [Jia-Ren Chang](https://jiarenchang.github.io/) and [Yong-Sheng Chen](https://people.cs.nctu.edu.tw/~yschen/).
 
-### Citation
-```
-@inproceedings{chang2018pyramid,
-  title={Pyramid Stereo Matching Network},
-  author={Chang, Jia-Ren and Chen, Yong-Sheng},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  pages={5410--5418},
-  year={2018}
-}
-```
-
-## Contents
-
-1. [Introduction](#introduction)
-2. [Usage](#usage)
-3. [Results](#results)
-4. [Contacts](#contacts)
+본 저장소는 NIA 인도 보행 데이터의 검수용으로 구축되었습니다. 인도 보행 데이터는 공공 데이터 구축을 목적으로 하는 http://www.aihub.or.kr/에서 제공됩니다.
+인도 보행 데이터는 장애인 인도보행의 어려움과 이동권 문제 해결을 위하여 공개 데이터로 만들어졌습니다. http://www.aihub.or.kr/content/611 에서 다운받을 수 있습니다.
+본 저장소는 "[Pyramid Stereo Matching Network](https://arxiv.org/abs/1803.08669)" paper (CVPR 2018) by [Jia-Ren Chang](https://jiarenchang.github.io/) and [Yong-Sheng Chen](https://people.cs.nctu.edu.tw/~yschen/) 기반으로 이루어졌습니다.
 
 ## Introduction
 
-Recent work has shown that depth estimation from a stereo pair of images can be formulated as a supervised learning task to be resolved with convolutional neural networks (CNNs). However, current architectures rely on patch-based Siamese networks, lacking the means to exploit context information for finding correspondence in illposed regions. To tackle this problem, we propose PSMNet, a pyramid stereo matching network consisting of two main modules: spatial pyramid pooling and 3D CNN. The spatial pyramid pooling module takes advantage of the capacity of global context information by aggregating context in different scales and locations to form a cost volume. The 3D CNN learns to regularize cost volume using stacked multiple hourglass networks in conjunction with intermediate supervision.
+PSMNet, a pyramid stereo matching network, consists two main modules: spatial pyramid pooling and 3D CNN. The spatial pyramid pooling module takes advantage of the capacity of global context information by aggregating context in different scales and locations to form a cost volume. The 3D CNN learns to regularize cost volume using stacked multiple hourglass networks in conjunction with intermediate supervision.
 
 <img align="center" src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg">
 
-## Usage
+### Installation
 
 ### Dependencies
 
 - [Python2.7](https://www.python.org/downloads/)
 - [PyTorch(0.4.0+)](http://pytorch.org)
 - torchvision 0.2.0 (higher version may cause issues)
-- [KITTI Stereo](http://www.cvlibs.net/datasets/kitti/eval_stereo.php)
-- [Scene Flow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
 
-```
-Usage of Scene Flow dataset
-Download RGB cleanpass images and its disparity for three subset: FlyingThings3D, Driving, and Monkaa.
-Put them in the same folder.
-And rename the folder as: "driving_frames_cleanpass", "driving_disparity", "monkaa_frames_cleanpass", "monkaa_disparity", "frames_cleanpass", "frames_disparity".
-```
 
 ### Train
 As an example, use the following command to train a PSMNet on Scene Flow
@@ -83,29 +63,32 @@ python submission.py --maxdisp 192 \
 ### Pretrained Model
 ※NOTE: The pretrained model were saved in .tar; however, you don't need to untar it. Use torch.load() to load it.
 
-Update: 2019/11/22 We released the pre-trained KITTI 2012 model.
-
-| KITTI 2015 |  Scene Flow | KITTI 2012| AI Hub |
+| KITTI 2015 |  Scene Flow | KITTI 2012| NIA Sidewalk |
 |---|---|---|---|
 |[Google Drive](https://drive.google.com/file/d/1pHWjmhKMG4ffCrpcsp_MTXMJXhgl3kF9/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1xoqkQ2NXik1TML_FMUTNZJFAHrhLdKZG/view?usp=sharing)|[Google Drive](https://drive.google.com/file/d/1p4eJ2xDzvQxaqB20A_MmSP9-KORBX1pZ/view)|[Google Drive](https://drive.google.com/open?id=1S8KUz2bCRhBbj_YRyzjB03Ag_S8WJA2I)|
 
 
 ## Results
 
-### Evaluation of PSMNet with different settings
-<img align="center" src="https://user-images.githubusercontent.com/11732099/37817886-45a12ece-2eb3-11e8-8254-ae92c723b2f6.png">
+### Hardware
 
-※Note that the reported 3-px validation errors were calculated using KITTI's official matlab code, not our code.
+- 8 NVIDIA Titan Xp GPUs
+- Intel Xeon 4210 CPU @ 2.20GHz
 
-### Results on KITTI 2015 leaderboard
-[Leaderboard Link](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
+### Software
 
-| Method | D1-all (All) | D1-all (Noc)| Runtime (s) |
-|---|---|---|---|
-| PSMNet | 2.32 % | 2.14 % | 0.41 |
-| [iResNet-i2](https://arxiv.org/abs/1712.01039) | 2.44 % | 2.19 % | 0.12 |
-| [GC-Net](https://arxiv.org/abs/1703.04309) | 2.87 % | 2.61 % | 0.90 |
-| [MC-CNN](https://github.com/jzbontar/mc-cnn) | 3.89 % | 3.33 % | 67 |
+- Ubuntu 16.04
+- Python 2.7
+- PyTorch 0.4.0
+- CUDA 9.0
+
+
+### Results on NIA Sidewalk dataset
+
+| Backbone | Language | D1-all (All) | Download |
+|--|--|--|--|
+| PSMNet | pytorch | 4.779 % | [model](https://drive.google.com/file/d/1ZWhZL_ZiwQub9ZtoNjNzLXjgLHwbF4Wm/view?usp=sharing) |
+
 
 ### Qualitative results
 #### Left image
@@ -118,5 +101,16 @@ Update: 2019/11/22 We released the pre-trained KITTI 2012 model.
 ## Contacts
 parkkibaek@kaist.ac.kr
 
+## License
 MIT License
 
+### Citation
+```
+@inproceedings{chang2018pyramid,
+  title={Pyramid Stereo Matching Network},
+  author={Chang, Jia-Ren and Chen, Yong-Sheng},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={5410--5418},
+  year={2018}
+}
+```
