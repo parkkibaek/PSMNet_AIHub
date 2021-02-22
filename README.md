@@ -32,7 +32,7 @@ For detailed installation, Please refer [INSTALL.md](./INSTALL.md).<br/>
 
 
 ### Prepare datasets
-Dataset Download : [http://www.aihub.or.kr/content/611](http://www.aihub.or.kr/content/611)<br/>
+Dataset Download : [https://aihub.or.kr/aidata/136/download](https://aihub.or.kr/aidata/136/download)<br/>
 [main.py](./main.py) reads images from following data structure. The folder name starting with ZED* and test* is training data and test data respectively.
 
 ```
