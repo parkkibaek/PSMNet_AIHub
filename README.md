@@ -132,7 +132,8 @@ MIT License
 }
 ```
 
-SideGuide dataset (http://ras.papercept.net/images/temp/IROS/files/1873.pdf)
+SideGuide dataset 
+SideGuide: A Large-scale Sidewalk Dataset for Guiding Impaired People (http://ras.papercept.net/images/temp/IROS/files/1873.pdf)
 - you can download the dataset in https://aihub.or.kr/aidata/136/download
 ```
 @inproceedings{park2020sideguide,
