@@ -131,3 +131,16 @@ MIT License
   year={2018}
 }
 ```
+
+SideGuide dataset (http://ras.papercept.net/images/temp/IROS/files/1873.pdf)
+- you can download the dataset in https://aihub.or.kr/aidata/136/download
+```
+@inproceedings{park2020sideguide,
+  title={SideGuide: A Large-scale Sidewalk Dataset for Guiding Impaired People},
+  author={Park, Kibaek and Oh, Youngtaek and Ham, Soomin and Joo, Kyungdon and Kim, Hyokyoung and Kum, Hyoyoung and Kweon, In So},
+  booktitle={2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={10022--10029},
+  year={2020},
+  organization={IEEE}
+}
+```
